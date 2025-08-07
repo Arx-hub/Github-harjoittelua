@@ -50,6 +50,21 @@ namespace Github_harjoittelua
                 Console.WriteLine("Ei kirjoja annetulla nimellä.");
             }
         }
+
+        static void TulostaKirjat(List<Kirja> kirjat)
+        {
+            if (kirjat.Count == 0)
+            {
+                Console.WriteLine("Ei kirjoja listalla.");
+                return;
+            }
+
+            Console.WriteLine("Kaikki kirjat:");
+            foreach (var kirja in kirjat)
+            {
+                Console.WriteLine(kirja);
+            }
+        }
     }
 
     
