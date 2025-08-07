@@ -7,8 +7,29 @@ namespace Github_harjoittelua
     {
         static void Main(string[] args)
         {
+            List<Kirja> kirjat = new List<Kirja>();
+        }
+
+        static void LisaaKirja(List<Kirja> kirjat)
+        {
+            Console.Write("Anna kirjan nimi: ");
+            string nimi = Console.ReadLine();
+
+            Console.Write("Anna kirjoittajan nimi: ");
+            string kirjoittaja = Console.ReadLine();
+
+            Console.Write("Anna julkaisuvuosi: ");
+            int julkaisuvuosi = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Anna genre: ");
+            string genre = Console.ReadLine();
+
+            kirjat.Add(new Kirja(nimi, kirjoittaja, julkaisuvuosi, genre));
+            Console.WriteLine("Kirja lisätty!");
         }
     }
+
+    
 
     class Kirja
     {
