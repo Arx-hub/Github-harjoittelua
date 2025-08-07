@@ -87,6 +87,28 @@ namespace Github_harjoittelua
                 Console.WriteLine("Ei kirjoja annetulla genrellä.");
             }
         }
+
+        static void EtsiNimella(List<Kirja> kirjat)
+        {
+            Console.WriteLine("Anna kirjoittajan nimi tai kirjan nimi: ");
+            string haluttuNimi = Console.ReadLine();
+            bool löytyi = false;
+
+            foreach (var kirja in kirjat)
+            {
+                if (kirja.Nimi.Equals(haluttuNimi, StringComparison.OrdinalIgnoreCase) || kirja.Kirjoittaja.Equals(haluttuNimi, StringComparison.OrdinalIgnoreCase))
+                {
+                    Console.WriteLine(kirja);
+                    löytyi = true;
+                }
+            }
+
+            if (!löytyi)
+            {
+                Console.WriteLine("Ei kirjoja annetulla nimellä.");
+            }
+
+        }
     }
 
     
@@ -100,6 +122,7 @@ namespace Github_harjoittelua
 
         public string Nimi => nimi;
         public string Genre => genre;
+        public string Kirjoittaja => kirjoittaja;
 
         public Kirja(string nimi, string kirjoittaja, int julkaisuvuosi, string genre)
         {
