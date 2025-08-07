@@ -65,6 +65,28 @@ namespace Github_harjoittelua
                 Console.WriteLine(kirja);
             }
         }
+
+        static void TulostaGenrenMukaan(List<Kirja> kirjat)
+        {
+            Console.Write("Anna genre: ");
+            string haluttuGenre = Console.ReadLine();
+
+            bool löytyi = false;
+
+            foreach (var kirja in kirjat)
+            {
+                if (kirja.Genre.Equals(haluttuGenre, StringComparison.OrdinalIgnoreCase))
+                {
+                    Console.WriteLine(kirja);
+                    löytyi = true;
+                }
+            }
+
+            if (!löytyi)
+            {
+                Console.WriteLine("Ei kirjoja annetulla genrellä.");
+            }
+        }
     }
 
     
@@ -77,6 +99,7 @@ namespace Github_harjoittelua
         private string genre;
 
         public string Nimi => nimi;
+        public string Genre => genre;
 
         public Kirja(string nimi, string kirjoittaja, int julkaisuvuosi, string genre)
         {
