@@ -8,6 +8,50 @@ namespace Github_harjoittelua
         static void Main(string[] args)
         {
             List<Kirja> kirjat = new List<Kirja>();
+
+            while (true)
+            {
+                Console.WriteLine("\nValitse toiminto:");
+                Console.WriteLine("1. Lisää kirja");
+                Console.WriteLine("2. Poista kirja");
+                Console.WriteLine("3. Näytä kaikki kirjat");
+                Console.WriteLine("4. Näytä kirjat genren mukaan");
+                Console.WriteLine("5. Etsi kirjoja kirjoittajan tai nimen perusteella");
+                Console.WriteLine("6. Poistu ohjelmasta");
+                Console.Write("Valinta (1-6): ");
+                string valinta = Console.ReadLine();
+
+                switch (valinta)
+                {
+                    case "1":
+                        LisaaKirja(kirjat);
+                        break;
+
+                    case "2":
+                        PoistaKirja(kirjat);
+                        break;
+
+                    case "3":
+                        TulostaKirjat(kirjat);
+                        break;
+
+                    case "4":
+                        TulostaGenrenMukaan(kirjat);
+                        break;
+
+                    case "5":
+                        EtsiNimella(kirjat);
+                        break;
+
+                    case "6":
+                        Console.WriteLine("Ohjelma suljetaan.");
+                        return;
+
+                    default:
+                        Console.WriteLine("Virheellinen valinta.");
+                        break;
+                }
+            }
         }
 
         static void LisaaKirja(List<Kirja> kirjat)
