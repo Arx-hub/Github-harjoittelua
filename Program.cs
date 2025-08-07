@@ -27,6 +27,29 @@ namespace Github_harjoittelua
             kirjat.Add(new Kirja(nimi, kirjoittaja, julkaisuvuosi, genre));
             Console.WriteLine("Kirja lisätty!");
         }
+
+        static void PoistaKirja(List<Kirja> kirjat)
+        {
+            Console.WriteLine("Anna kirjan nimi, jonka haluat poistaa listalta:");
+            string haluttuKirja = Console.ReadLine();
+
+            bool löytyi = false;
+
+            foreach (var kirja in kirjat)
+            {
+                if (kirja.Nimi.Equals(haluttuKirja, StringComparison.OrdinalIgnoreCase))
+                {
+                    kirjat.Remove(kirja);
+                    Console.WriteLine("Kirja poistettu listalta!");
+                    löytyi = true;
+                }
+            }
+
+            if (!löytyi)
+            {
+                Console.WriteLine("Ei kirjoja annetulla nimellä.");
+            }
+        }
     }
 
     
@@ -37,6 +60,8 @@ namespace Github_harjoittelua
         private string kirjoittaja;
         private int julkaisuvuosi;
         private string genre;
+
+        public string Nimi => nimi;
 
         public Kirja(string nimi, string kirjoittaja, int julkaisuvuosi, string genre)
         {
